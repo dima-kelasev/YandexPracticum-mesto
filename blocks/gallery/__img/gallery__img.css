@@ -1,0 +1,6 @@
+.gallery__img {
+	width: 100%;
+	display: block;
+	border-top-left-radius: 15px;
+	border-top-right-radius: 15px;
+}

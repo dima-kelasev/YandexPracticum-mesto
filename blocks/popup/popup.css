@@ -1,0 +1,17 @@
+.popup {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: rgba(17, 17, 17, 0.65);;
+	z-index: 1;
+	height: 100vh;
+	justify-content: center;
+	align-items: center;
+	display: none;
+}
+
+.open {
+	display: flex;
+}
