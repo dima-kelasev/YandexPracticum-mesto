@@ -1,12 +1,10 @@
 .profile__vector {
-    border: 1px solid #fff;
-		padding: 6px;
-		cursor: pointer;
-		margin-left: 18px;
+
 }
 
-.profile__vector:hover {
-	opacity: .6;
-	transition: .3s linear;
-	margin-left: 15px;
+@media (max-width: 320px) {
+	.profile__vector {
+		width: 7.5px;
+		
+	}
 }

@@ -9,7 +9,7 @@
 <body class="root">
 	<div class="page-container">
 			<header class="header">
-				<img class="header__logo" src="imegas/logo.svg" alt="MESTO Russia">
+				<img class="header__logo" src="imegas/logo.svg" alt="Место логотип">
 			</header>
 			<main>
 
@@ -21,14 +21,17 @@
 						<div class="profile__text">
 							<div class="profile__title-block">
 								<h1 class="profile__title">Жак-Ив Кусто </h1>
-								<img class="profile__vector" src="imegas/Vector.png" alt="кнопка редактирования">
+								<button class="profile__btn" type="button">
+									<img class="profile__vector" src="imegas/Vector.png" alt="кнопка редактирования">
+								</button>
+								
 							</div>
 							<p class="profile__subtitle">Исследователь океана</p>
 						</div>
 					</div>
-					<div class="profile__add">
+					<button class="profile__add" type="button">
 						<img class="profile__add-plus" src="imegas/VectorPlus.png" alt="кнопка Плюс">
-					</div>
+					</button>
 				</section>
 
 		<section class="gallery">
@@ -37,7 +40,9 @@
 						<img class="gallery__img" src="imegas/kirill-pershin-1088404-unsplash.jpg" alt="картинка">
 						<div class="gallery__text">
 							<p class="gallery__title">Карачаевск</p>
-							<img class="gallery__heart" src="imegas/VectorHeart.svg" alt="Лайк">
+								<button class="gallery__like" type="button">
+								<img class="gallery__heart" src="imegas/VectorHeart.svg" alt="Лайк">
+							</button>
 						</div>
 					</div>
 
@@ -45,7 +50,9 @@
 						<img class="gallery__img" src="imegas/kirill-pershin-1404681-unsplash.png" alt="картинка">
 						<div class="gallery__text">
 							<p class="gallery__title">Гора Эльбрус</p>
-							<img class="gallery__heart" src="imegas/VectorHeart.svg" alt="Лайк">
+								<button class="gallery__like" type="button">
+								<img class="gallery__heart" src="imegas/VectorHeart.svg" alt="Лайк">
+							</button>
 						</div>
 					</div>
 
@@ -53,7 +60,9 @@
 						<img class="gallery__img" src="imegas/kirill-pershin-1556355-unsplash.png" alt="картинка">
 						<div class="gallery__text">
 							<p class="gallery__title">Домбай</p>
-							<img class="gallery__heart" src="imegas/VectorHeart.svg" alt="Лайк">
+							<button class="gallery__like" type="button">
+								<img class="gallery__heart" src="imegas/VectorHeart.svg" alt="Лайк">
+							</button>
 						</div>
 					</div>
 
@@ -61,7 +70,9 @@
 						<img class="gallery__img" src="imegas/kirill-pershin-1088404-unsplash.jpg" alt="картинка">
 						<div class="gallery__text">
 							<p class="gallery__title">Гора Эльбрус</p>
-							<img class="gallery__heart" src="imegas/VectorHeart.svg" alt="Лайк">
+							<button class="gallery__like" type="button">
+								<img class="gallery__heart" src="imegas/VectorHeart.svg" alt="Лайк">
+							</button>
 						</div>
 					</div>
 
@@ -69,7 +80,9 @@
 						<img class="gallery__img" src="imegas/kirill-pershin-1404681-unsplash.png" alt="картинка">
 						<div class="gallery__text">
 							<p class="gallery__title">Домбай</p>
-							<img class="gallery__heart" src="imegas/VectorHeart.svg" alt="Лайк">
+								<button class="gallery__like" type="button">
+								<img class="gallery__heart" src="imegas/VectorHeart.svg" alt="Лайк">
+							</button>
 						</div>
 					</div>
 
@@ -77,7 +90,9 @@
 						<img class="gallery__img" src="imegas/kirill-pershin-1556355-unsplash.png" alt="картинка">
 						<div class="gallery__text">
 							<p class="gallery__title">Карачаево-Черкесия</p>
-							<img class="gallery__heart" src="imegas/VectorHeart.svg" alt="Лайк">
+								<button class="gallery__like" type="button">
+								<img class="gallery__heart" src="imegas/VectorHeart.svg" alt="Лайк">
+							</button>
 						</div>
 					</div>
 
@@ -85,22 +100,25 @@
 			</main>
 
 			<footer class="footer">
-				<h2 class="footer__title">© 2020 Mesto Russia</h2>
+				<p class="footer__title">© 2020 Mesto Russia</p>
 			</footer>
 	</div> 
 
 	<div class="popup">
 		<div class="popup__container">
-			<img class="popup__close" src="imegas/Close Icon.png" alt="кнопка закрыть">
-			<form action="" class="popup__form">
+			<button class="popup__Btn-сlose" type="button" >
+				<img class="popup__close" src="imegas/CloseIcon.png" alt="кнопка закрыть">
+			</button>  
+		
+			<form class="popup__form" name="ChangeForm">
 				<h3 class="popup__title">Редактировать профиль</h3>
-				<input type="text" class="popup__name" value="Жак-Ив Кусто">
-				<input type="text" class="popup__job" value="Исследователь океана">
+				<input type="text" class="popup__name" name="Name">
+				<input type="text" class="popup__name popup__name_job" name="Job">
 				<input class="popup__btn" type="submit" value="Сохранить">
 			</form>
 		</div>
 	</div>
 
-	<script src='script.js'></script>
+	<script src="script.js"></script>
 </body>
 </html>

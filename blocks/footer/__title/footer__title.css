@@ -8,6 +8,8 @@
 
 @media (max-width:577px) {
 	.footer__title {
+		font-size: 14px;
 		margin: 48px 19px 36px;
 	}
 }
+

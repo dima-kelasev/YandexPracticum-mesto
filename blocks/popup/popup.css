@@ -4,7 +4,7 @@
 	left: 0;
 	right: 0;
 	bottom: 0;
-	background-color: rgba(17, 17, 17, 0.65);;
+	background-color: rgba(17, 17, 17, 0.65);
 	z-index: 1;
 	height: 100vh;
 	justify-content: center;
@@ -12,6 +12,6 @@
 	display: none;
 }
 
-.open {
+/* .open {
 	display: flex;
-}
+} */

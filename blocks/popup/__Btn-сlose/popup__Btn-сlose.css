@@ -1,0 +1,23 @@
+.popup__Btn-сlose {
+	position: absolute;
+  right: -48px;
+  top: -48px;
+  cursor: pointer;
+  border: 0;
+  background: initial;
+}
+
+@media (max-width:530px) {
+	.popup__BtnClose {
+    right: 0px;
+    top: -50px;
+    width: 45px;
+	}
+}
+
+@media (max-width:320px) {
+	.popup__BtnClose {
+    top: -33px;
+    width: 26px;
+	}
+}

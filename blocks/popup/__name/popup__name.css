@@ -1,5 +1,10 @@
 .popup__name {
 	border: 0;
-	border-bottom: 1px solid #000;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 	margin-bottom: 30px;
+	padding-bottom: 13px;
+} 
+
+.popup__name:last-of-type {
+	margin-bottom: 48px;
 }

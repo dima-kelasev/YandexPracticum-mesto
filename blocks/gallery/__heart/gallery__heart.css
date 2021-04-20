@@ -2,6 +2,10 @@
 	cursor: pointer;
 }
 
+.gallery__heart:active {
+	
+}
+
 .gallery__heart:hover {
 	opacity: .5;
 	transition: .3s linear;
