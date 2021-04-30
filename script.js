@@ -1,10 +1,10 @@
 let profile = document.querySelector('.profile__btn');
-let closeBtn = document.querySelector('.popup__Btn-сlose');
+let closeBtn = document.querySelector('.popup__btnclose');
 let popUp = document.querySelector('.popup');
 let form = document.querySelector('.popup__form');
 let sendBtn = document.querySelector('.popup__btn')
-let nameInput = document.querySelector('.popup__name');
-let jobInput = document.querySelector('.popup__name_job')
+let nameInput = document.querySelector('.popup__name_js_first-name');
+let jobInput = document.querySelector('.popup__name_js_job')
 let titleText = document.querySelector('.profile__title');
 let subtitleText = document.querySelector('.profile__subtitle');
 
