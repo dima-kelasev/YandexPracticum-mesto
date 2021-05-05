@@ -36,66 +36,17 @@
 
 		<section class="gallery">
 
-					<div class="gallery__item">
-						<img class="gallery__img" src="imegas/kirill-pershin-1088404-unsplash.jpg" alt="картинка">
-						<div class="gallery__text">
-							<p class="gallery__title">Карачаевск</p>
-								<button class="gallery__like" type="button">
-								<img class="gallery__heart" src="imegas/VectorHeart.svg" alt="Лайк">
-							</button>
+					<template id="cards">
+						<div class="gallery__item">
+							<img class="gallery__img" src="" alt="">
+							<img src="imegas/trash.png" class="gallery__trash" alt="">
+								<div class="gallery__text">
+									<p class="gallery__title"></p>
+									<button class="gallery__like" type="button">
+									</button>
+								</div>
 						</div>
-					</div>
-
-					<div class="gallery__item">
-						<img class="gallery__img" src="imegas/kirill-pershin-1404681-unsplash.png" alt="картинка">
-						<div class="gallery__text">
-							<p class="gallery__title">Гора Эльбрус</p>
-								<button class="gallery__like" type="button">
-								<img class="gallery__heart" src="imegas/VectorHeart.svg" alt="Лайк">
-							</button>
-						</div>
-					</div>
-
-					<div class="gallery__item">
-						<img class="gallery__img" src="imegas/kirill-pershin-1556355-unsplash.png" alt="картинка">
-						<div class="gallery__text">
-							<p class="gallery__title">Домбай</p>
-							<button class="gallery__like" type="button">
-								<img class="gallery__heart" src="imegas/VectorHeart.svg" alt="Лайк">
-							</button>
-						</div>
-					</div>
-
-					<div class="gallery__item">
-						<img class="gallery__img" src="imegas/kirill-pershin-1088404-unsplash.jpg" alt="картинка">
-						<div class="gallery__text">
-							<p class="gallery__title">Гора Эльбрус</p>
-							<button class="gallery__like" type="button">
-								<img class="gallery__heart" src="imegas/VectorHeart.svg" alt="Лайк">
-							</button>
-						</div>
-					</div>
-
-					<div class="gallery__item">
-						<img class="gallery__img" src="imegas/kirill-pershin-1404681-unsplash.png" alt="картинка">
-						<div class="gallery__text">
-							<p class="gallery__title">Домбай</p>
-								<button class="gallery__like" type="button">
-								<img class="gallery__heart" src="imegas/VectorHeart.svg" alt="Лайк">
-							</button>
-						</div>
-					</div>
-
-					<div class="gallery__item">
-						<img class="gallery__img" src="imegas/kirill-pershin-1556355-unsplash.png" alt="картинка">
-						<div class="gallery__text">
-							<p class="gallery__title">Карачаево-Черкесия</p>
-								<button class="gallery__like" type="button">
-								<img class="gallery__heart" src="imegas/VectorHeart.svg" alt="Лайк">
-							</button>
-						</div>
-					</div>
-
+					</template>
 		</section>
 			</main>
 
@@ -116,6 +67,34 @@
 				<input type="text" class="popup__name popup__name_js_job" name="Job">
 				<input class="popup__btn" type="submit" value="Сохранить">
 			</form>
+		</div>
+	</div>
+
+
+	<div class="popup-place">
+		<div class="popup-place__container">
+			<button class="popup-place__btnclose" type="button" >
+				<img class="popup-place__close" src="imegas/CloseIcon.png" alt="кнопка закрыть">
+			</button>
+
+			<form class="popup-place__form" name="ChangeForm">
+				<h3 class="popup-place__title">Редактировать профиль</h3>
+				<input type="text" class="popup-place__name popup-place__name_place" name="NameCard" placeholder="Название">
+				<input type="text" class="popup-place__name popup-place__name_link" name="link" placeholder="Ссылка на картинку">
+				<input class="popup-place__btn" type="submit" value="Сохранить">
+			</form>
+		</div>
+	</div>
+
+	<div class="popup-img">
+		<div class="popup-img__wrapper">
+
+			<div>
+				<img class="popup-img__close" src="imegas/CloseIcon.png" alt="">
+				<img class="popup-img__main" src="" alt="">
+				<p class="popup-img__title"></p>
+			</div>
+
 		</div>
 	</div>
 

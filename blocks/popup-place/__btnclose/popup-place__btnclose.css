@@ -1,0 +1,35 @@
+.popup-place__btnclose {
+    position: absolute;
+    right: -48px;
+    top: -48px;
+    cursor: pointer;
+    border: 0;
+    background: initial;
+}
+
+.popup-place__btnclose:focus {
+    outline: none;
+}
+
+@media (max-width:530px) {
+    .popup-place__btnclose {
+        right: 0px;
+        top: -50px;
+        width: 45px;
+    }
+}
+
+@media (max-width:320px) {
+    .popup-place__btnclose {
+        top: -33px;
+        width: 26px;
+    }
+}
+
+/* странно, у меня все рабоатет
+и кнопка на месте и не показывает ошибок не каких
+о том что с названием файла что то не то
+я заменил букву на анл
+могу приложить скрин
+о том как у меня это выглядит */
+}

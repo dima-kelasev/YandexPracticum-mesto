@@ -1,0 +1,6 @@
+.gallery__trash {
+    position: absolute;
+    top: 23px;
+    right: 16px;
+    cursor: pointer;
+}

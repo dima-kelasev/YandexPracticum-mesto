@@ -1,4 +1,16 @@
 .gallery__like {
 	background: inherit;
 	border: 0;
+	background-image: url('../../../imegas/VectorHeart.svg');
+	background-repeat: no-repeat;
+	width: 11%;
+	cursor: pointer;
+	transition: .3s linear;
+	cursor: pointer;
+}
+
+.gallery__like:hover {
+	opacity: .6;
+	transition: .3s linear;
+	transform: scale(1.1);
 }

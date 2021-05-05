@@ -1,0 +1,20 @@
+.popup-place__close {
+
+}
+
+.popup-place__close:hover {
+    opacity: .6;
+    transition: .3s linear;
+}
+
+@media (max-width:425px) {
+    .popup-place__close {
+        width: 45px;
+    }
+}
+
+@media (max-width:320px) {
+    .popup-place__close {
+        width: 26px;
+    }
+}

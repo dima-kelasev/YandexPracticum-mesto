@@ -1,0 +1,29 @@
+.popup-place__container {
+    width: 430px;
+    height: 330px;
+    background-color: #fff;
+    position: relative;
+    z-index: 2;
+    opacity: 1;
+    border-radius: 10px;
+}
+
+@media (max-width:1024px) {
+    .popup-place__container {
+        margin-top: 123px;
+    }
+}
+
+@media (max-width:425px) {
+    .popup-place__container {
+        width: 389px;
+    }
+}
+
+@media (max-width:320px) {
+    .popup-place__container {
+        width: 282px;
+        height: 322px;
+        top: 123px;
+    }
+}

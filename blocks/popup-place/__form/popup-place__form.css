@@ -1,0 +1,6 @@
+.popup-place__form {
+    display: flex;
+    flex-direction: column;
+    width: 83.3%;
+    margin: 0 auto;
+}

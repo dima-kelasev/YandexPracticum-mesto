@@ -9,7 +9,10 @@
 	height: 100vh;
 	justify-content: center;
 	align-items: center;
-	display: none;
+	display: flex;
+	visibility: hidden;
+	opacity: 0;
+	transition: .5s linear;
 }
 
 /* .open {
