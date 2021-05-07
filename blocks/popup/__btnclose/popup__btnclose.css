@@ -12,7 +12,19 @@
 }
 
 #popup-img__close {
-    right: -25%;
+    right: -26%;
+}
+
+@media (max-width:1024px) {
+    #popup-img__close {
+        right: -45%;
+    }
+}
+
+@media (max-width:768px) {
+    #popup-img__close {
+        right: -24%;
+    }
 }
 
 @media (max-width:530px) {
@@ -21,13 +33,32 @@
     top: -50px;
     width: 45px;
 	}
+    #popup-img__close {
+        right: 0;
+    }
 }
+
+@media (max-width:425px) {
+    #popup-img__close {
+        right: -32%;
+    }
+}
+
+/*@media (max-width:375px) {*/
+/*    #popup-img__close {*/
+/*        right: -32%;*/
+/*    }*/
+/*}*/
 
 @media (max-width:320px) {
 	.popup__btnclose {
     top: -33px;
     width: 26px;
+    right: 0;
 	}
+    #popup-img__close {
+        right: -45%;
+    }
 }
 
 /* странно, у меня все рабоатет

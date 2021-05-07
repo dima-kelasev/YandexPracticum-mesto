@@ -17,8 +17,8 @@
 @media (max-width: 768px) {
     .popup__img-close {
         /*width: 36px;*/
-        right: -46%;
-        top: -14%;
+        right: -100px;
+        top: -13px;
     }
 }
 
@@ -33,7 +33,7 @@
 @media (max-width: 320px) {
     .popup__img-close {
         width: 26px;
-        right: -48%;
+        right: 0;
         top: -20%;
     }
 }

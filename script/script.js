@@ -48,8 +48,6 @@ closeCardBtn.addEventListener('click', function () {
 	closeProfile(popupPlace);
 });
 
-
-
 const initialCards = [
 	{
 		name: 'Архыз',
@@ -93,8 +91,23 @@ const templateCards = document.querySelector('#cards').content;
 const imgTitle = document.querySelector('.popup__img-title');
 const closeImg = popupImg.querySelector('#popup-img__close');
 
-function createElement() {
+function createElement(item) {
 	const element = templateCards.querySelector('.gallery__item').cloneNode(true);
+	element.querySelector('.gallery__img').src = item.link;
+	element.querySelector('.gallery__img').alt = item.alt;
+	element.querySelector('.gallery__title').textContent = item.name;
+	element.querySelector('.gallery__trash').src = item.trash;
+
+	const removeCard = element.querySelector('.gallery__trash');
+	const likeBtn = element.querySelector('.gallery__like');
+
+	likeBtn.addEventListener('click', function (e) {
+		e.target.classList.toggle('gallery__like_active');
+	})
+
+	removeCard.addEventListener('click', function (e) {
+		e.target.closest('.gallery__item').remove();
+	})
 	return element;
 }
 
@@ -104,23 +117,13 @@ function addCards(element ,cards) {
 
 function getCardElement(e) {
 	e.preventDefault();
-	const templateElement = createElement()
-	const place = inputPlace.value;
-	const link = inputLink.value;
+	const initialElement = {
+		name: inputPlace.value,
+		link: inputLink.value,
+	}
 
-	templateElement.querySelector('.gallery__img').src = link;
-	templateElement.querySelector('.gallery__title').textContent = place;
-	const removeCard = templateElement.querySelector('.gallery__trash');
-	const likeBtn = templateElement.querySelector('.gallery__like');
+	const templateElement = createElement(initialElement);
 	const imgClick = templateElement.querySelector('.gallery__img');
-
-	removeCard.addEventListener('click', function (e) {
-		e.target.closest('.gallery__item').remove();
-	});
-
-	likeBtn.addEventListener('click', function (e) {
-		e.target.classList.toggle('gallery__like_active');
-	});
 
 	imgClick.addEventListener('click', function (e) {
 		const activeImg = e.target;
@@ -131,7 +134,7 @@ function getCardElement(e) {
 		popupImg.querySelector('.popup__img-main').src = srcImg;
 		popupImg.querySelector('.popup__img-main').alt = altImg;
 		imgTitle.textContent = title;
-		openPopup(popupImg)
+		openPopup(popupImg);
 	});
 
 	gallery.prepend(templateElement);
@@ -139,26 +142,10 @@ function getCardElement(e) {
 	closeProfile(popupPlace);
 }
 
-
 function addCard() {
 	  initialCards.forEach( (item) => {
-			const templateElement = createElement()
-		  const removeCard = templateElement.querySelector('.gallery__trash');
-		  const likeBtn = templateElement.querySelector('.gallery__like');
+			const templateElement = createElement(item)
 		  const imgClick = templateElement.querySelector('.gallery__img');
-
-		  likeBtn.addEventListener('click', function (e) {
-		  	e.target.classList.toggle('gallery__like_active');
-		  })
-
-		  removeCard.addEventListener('click', function (e) {
-		  	e.target.closest('.gallery__item').remove();
-		  })
-
-		  templateElement.querySelector('.gallery__img').src = item.link;
-			templateElement.querySelector('.gallery__img').alt = item.alt;
-		  templateElement.querySelector('.gallery__title').textContent = item.name;
-		  templateElement.querySelector('.gallery__trash').src = item.trash;
 
 			imgClick.addEventListener('click', function (e) {
 				const activeImg = e.target;
