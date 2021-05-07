@@ -37,8 +37,10 @@
 				<section class="gallery">
 							<template id="cards">
 								<div class="gallery__item">
-									<img class="gallery__img" src="" alt="картинка с красивым местом">
-									<img src="imegas/trash.png" class="gallery__trash" alt="кнопка удалить">
+									<img class="gallery__img" src="#" alt="картинка с красивым местом">
+									<button class="gallery__trash" type="button">
+										<img src="imegas/trash.png"  alt="кнопка удалить">
+									</button>
 										<div class="gallery__text">
 											<p class="gallery__title"></p>
 											<button class="gallery__like" type="button">
@@ -55,47 +57,50 @@
 			</footer>
 	</div> 
 
-	<div class="popup">
+	<div class="popup" id="popup-edit-profile">
 		<div class="popup__container">
 			<button class="popup__btnclose" type="button" >
 				<img class="popup__close" src="imegas/CloseIcon.png" alt="кнопка закрыть">
 			</button>  
 		
-			<form class="popup__form" name="ChangeForm">
+			<form class="popup__form" name="ChangeForm" id="pop-form-edit">
 				<h3 class="popup__title">Редактировать профиль</h3>
-				<input type="text" class="popup__name popup__name_js_first-name" name="Name">
-				<input type="text" class="popup__name popup__name_js_job" name="Job">
-				<input class="popup__btn" type="submit" value="Сохранить">
+				<input type="text" class="popup__name popup__name_js_first-name" name="Name" required>
+				<input type="text" class="popup__name popup__name_js_job" name="Job" required>
+				<button class="popup__btn" type="submit" >Сохранить</button>
 			</form>
 		</div>
 	</div>
 
 
-	<div class="popup-place">
-		<div class="popup-place__container">
-			<button class="popup-place__btnclose" type="button" >
-				<img class="popup-place__close" src="imegas/CloseIcon.png" alt="кнопка закрыть">
+	<div class="popup" id="popup-place__form">
+		<div class="popup__container">
+			<button class="popup__btnclose" type="button"  id="closePlaceform">
+				<img class="popup__close" src="imegas/CloseIcon.png" alt="кнопка закрыть">
 			</button>
 
-			<form class="popup-place__form" name="ChangeForm">
-				<h3 class="popup-place__title">Редактировать профиль</h3>
-				<input type="text" class="popup-place__name popup-place__name_place" name="NameCard" placeholder="Название">
-				<input type="text" class="popup-place__name popup-place__name_link" name="link" placeholder="Ссылка на картинку">
-				<input class="popup-place__btn" type="submit" value="Сохранить">
+			<form class="popup__form" name="addCard" id="popup-place__form_Add">
+				<h3 class="popup__title">Новое место</h3>
+				<input type="text" class="popup__name popup__name_place" name="NameCard" placeholder="Название">
+				<input type="url" class="popup__name popup__name_link" name="link" placeholder="Ссылка на картинку">
+				<button class="popup__btn" type="submit">Сохранить</button>
 			</form>
 		</div>
 	</div>
 
-	<div class="popup-img">
-		<div class="popup-img__wrapper">
+	<div class="popup" id="popup-img__form">
+		<div class="popup__wrapper">
 			<div>
-				<img class="popup-img__close" src="imegas/CloseIcon.png" alt="закрыть окно">
-				<img class="popup-img__main" src="" alt="картинка на галвной">
-				<p class="popup-img__title"></p>
+				<button class="popup__btnclose" type="button"  id="popup-img__close">
+					<img class="popup__img-close" src="imegas/CloseIcon.png" alt="закрыть окно">
+				</button>
+
+				<img class="popup__img-main" src="#" alt="картинка на галвной">
+				<p class="popup__img-title"></p>
 			</div>
 		</div>
 	</div>
 
-	<script src="script.js"></script>
+	<script src="script/script.js"></script>
 </body>
 </html>

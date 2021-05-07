@@ -1,5 +1,0 @@
-.popup-place_opened {
-    visibility: visible;
-    opacity: 1;
-    transition: visibility 0s, opacity .5s linear;
-}

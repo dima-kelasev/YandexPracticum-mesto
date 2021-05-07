@@ -11,6 +11,10 @@
   outline: none;
 }
 
+#popup-img__close {
+    right: -25%;
+}
+
 @media (max-width:530px) {
 	.popup__btnclose {
     right: 0px;
