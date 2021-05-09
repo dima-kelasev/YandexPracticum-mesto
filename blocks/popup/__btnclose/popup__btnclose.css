@@ -1,11 +1,12 @@
 .popup__btnclose {
-	position: absolute;
+  position: absolute;
   right: -48px;
   top: -48px;
   cursor: pointer;
   border: 0;
   background: initial;
-    padding: 0;
+  padding: 0;
+
 }
 
 .popup__btnclose:focus {
@@ -28,7 +29,7 @@
     }
 }
 
-@media (max-width:530px) {
+@media (max-width:535px) {
 	.popup__btnclose {
     right: 0px;
     top: -50px;
@@ -39,11 +40,13 @@
     }
 }
 
-@media (max-width:425px) {
+@media (max-width:421px) {
     #popup-img__close {
-        right: -32%;
+        right: -28%;
     }
 }
+
+
 
 @media (max-width:320px) {
 	.popup__btnclose {
@@ -52,17 +55,10 @@
     right: 0;
 	}
     #popup-img__close {
-        right: -45%;
+        right: -41%;
     }
 }
 
 /**,*::before,*::after {*/
 /*    outline: 1px solid red;*/
 /*}*/
-
-/* странно, у меня все рабоатет
-и кнопка на месте и не показывает ошибок не каких
-о том что с названием файла что то не то
-я заменил букву на анл
-могу приложить скрин
-о том как у меня это выглядит */

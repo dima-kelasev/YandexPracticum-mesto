@@ -14,13 +14,13 @@
 	}
 }
 
-@media (max-width:425px) {
+@media (max-width:440px) {
 	.popup__container {
 	width: 389px;
 	}
 }
 
-@media (max-width:320px) {
+@media (max-width:396px) {
 	.popup__container {
 		width: 282px;
 		height: 322px;
