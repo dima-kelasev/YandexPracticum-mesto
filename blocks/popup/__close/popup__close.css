@@ -1,4 +1,7 @@
-
+.popup__close {
+    width: 100%;
+	display: block;
+}
 .popup__close:hover {
   opacity: .6;
   transition: .3s linear;
@@ -6,12 +9,12 @@
 
 @media (max-width:425px) {
 	.popup__close {
-    width: 45px;
+    /*width: 45px;*/
 	}
 }
 
 @media (max-width:320px) {
 	.popup__close {
-    width: 26px;
+    /*width: 26px;*/
 	}
 }

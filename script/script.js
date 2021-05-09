@@ -1,7 +1,7 @@
 const profile = document.querySelector('.profile__btn');
 const closeProfileBtn = document.querySelector('.popup__btnclose');
 const closeCardBtn = document.querySelector('#closePlaceform')
-const popUp = document.querySelector('#popup-edit-profile');
+const popupEditProfile = document.querySelector('#popup-edit-profile');
 const popupPlace = document.querySelector('#popup-place__form');
 const popupImg = document.querySelector('#popup-img__form');
 const formProfile = document.querySelector('#pop-form-edit');
@@ -19,12 +19,12 @@ function openPopup(popup) {
 	popup.classList.add('popup_opened');
 }
 
-function closeProfile(popup) {
+function closePopup(popup) {
 	popup.classList.remove('popup_opened');
 }
 
 function editProfile() {
-  openPopup(popUp);
+  openPopup(popupEditProfile);
 	nameInput.value = titleText.textContent;
 	jobInput.value = subtitleText.textContent;
 }
@@ -33,19 +33,19 @@ function handleFormSubmit(e) {
   e.preventDefault();
 	titleText.textContent = nameInput.value;
 	subtitleText.textContent = jobInput.value;
-	closeProfile(popUp);
+	closePopup(popupEditProfile);
 }
 
 profile.addEventListener('click', editProfile);
 closeProfileBtn.addEventListener('click', function () {
-	closeProfile(popUp);
+	closePopup(popupEditProfile);
 });
 formProfile.addEventListener('submit', handleFormSubmit);
 btnPlus.addEventListener('click', function () {
 	openPopup(popupPlace);
 });
 closeCardBtn.addEventListener('click', function () {
-	closeProfile(popupPlace);
+	closePopup(popupPlace);
 });
 
 const initialCards = [
@@ -100,6 +100,7 @@ function createElement(item) {
 
 	const removeCard = element.querySelector('.gallery__trash');
 	const likeBtn = element.querySelector('.gallery__like');
+	const imgClick = element.querySelector('.gallery__img');
 
 	likeBtn.addEventListener('click', function (e) {
 		e.target.classList.toggle('gallery__like_active');
@@ -108,6 +109,19 @@ function createElement(item) {
 	removeCard.addEventListener('click', function (e) {
 		e.target.closest('.gallery__item').remove();
 	})
+
+	imgClick.addEventListener('click', function (e) {
+		const activeImg = e.target;
+		const srcImg = activeImg.src;
+		const altImg = activeImg.alt;
+		let title = element.querySelector('.gallery__title').textContent;
+
+		popupImg.querySelector('.popup__img-main').src = srcImg;
+		popupImg.querySelector('.popup__img-main').alt = altImg;
+		imgTitle.textContent = title;
+		openPopup(popupImg);
+	});
+
 	return element;
 }
 
@@ -121,49 +135,21 @@ function getCardElement(e) {
 		name: inputPlace.value,
 		link: inputLink.value,
 	}
-
 	const templateElement = createElement(initialElement);
-	const imgClick = templateElement.querySelector('.gallery__img');
-
-	imgClick.addEventListener('click', function (e) {
-		const activeImg = e.target;
-		const srcImg = activeImg.src;
-		const altImg = activeImg.alt;
-		let title = templateElement.querySelector('.gallery__title').textContent;
-
-		popupImg.querySelector('.popup__img-main').src = srcImg;
-		popupImg.querySelector('.popup__img-main').alt = altImg;
-		imgTitle.textContent = title;
-		openPopup(popupImg);
-	});
-
 	gallery.prepend(templateElement);
 	formPlace.reset();
-	closeProfile(popupPlace);
+	closePopup(popupPlace);
 }
 
 function addCard() {
 	  initialCards.forEach( (item) => {
 			const templateElement = createElement(item)
-		  const imgClick = templateElement.querySelector('.gallery__img');
-
-			imgClick.addEventListener('click', function (e) {
-				const activeImg = e.target;
-				const srcImg = activeImg.src;
-				const altImg = activeImg.alt;
-				let title = templateElement.querySelector('.gallery__title').textContent;
-
-				popupImg.querySelector('.popup__img-main').src = srcImg;
-				popupImg.querySelector('.popup__img-main').alt = altImg;
-				imgTitle.textContent = title;
-				popupImg.classList.add('popup_opened');
-			});
 			addCards(gallery, templateElement);
 	})
 }
 
 closeImg.addEventListener('click', function () {
-	closeProfile(popupImg);
+	closePopup(popupImg);
 })
 formPlace.addEventListener('submit',getCardElement);
 addCard();

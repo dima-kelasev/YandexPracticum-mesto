@@ -5,6 +5,7 @@
   cursor: pointer;
   border: 0;
   background: initial;
+    padding: 0;
 }
 
 .popup__btnclose:focus {
@@ -44,12 +45,6 @@
     }
 }
 
-/*@media (max-width:375px) {*/
-/*    #popup-img__close {*/
-/*        right: -32%;*/
-/*    }*/
-/*}*/
-
 @media (max-width:320px) {
 	.popup__btnclose {
     top: -33px;
@@ -60,6 +55,10 @@
         right: -45%;
     }
 }
+
+/**,*::before,*::after {*/
+/*    outline: 1px solid red;*/
+/*}*/
 
 /* странно, у меня все рабоатет
 и кнопка на месте и не показывает ошибок не каких
