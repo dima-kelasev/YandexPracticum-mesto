@@ -62,10 +62,12 @@
 					<img class="popup__close" src="imegas/CloseIcon.png" alt="кнопка закрыть">
 				</button>
 
-				<form class="popup__form" name="ChangeForm" id="pop-form-edit">
+				<form novalidate class="popup__form" name="ChangeForm" id="pop-form-edit">
 					<h3 class="popup__title">Редактировать профиль</h3>
-					<input type="text" class="popup__name popup__name_js_first-name" name="Name" required>
-					<input type="text" class="popup__name popup__name_js_job" name="Job" required>
+					<input id="name" type="text" minlength="2" maxlength="40" class="popup__name popup__name_js_first-name" name="Name"  required>
+					<span class="popup__name-error" id="name-error"></span>
+					<input id="job" type="text" minlength="2" maxlength="200" class="popup__name popup__name_js_job" name="Job" required>
+					<span class="popup__name-error" id="job-error"></span>
 					<button class="popup__btn" type="submit" >Сохранить</button>
 				</form>
 			</div>
@@ -78,10 +80,12 @@
 					<img class="popup__close" src="imegas/CloseIcon.png" alt="кнопка закрыть">
 				</button>
 
-				<form class="popup__form" name="addCard" id="popup-place__form_Add">
+				<form novalidate class="popup__form" name="addCard" id="popup-place__form_Add">
 					<h3 class="popup__title">Новое место</h3>
-					<input type="text" class="popup__name popup__name_place" name="NameCard" placeholder="Название">
-					<input type="url" class="popup__name popup__name_link" name="link" placeholder="Ссылка на картинку">
+					<input id="place" type="text" minlength="2" maxlength="30" class="popup__name popup__name_place" name="NameCard" placeholder="Название" required>
+					<span class="popup__name-error" id="place-error"></span>
+					<input id="url" type="url" class="popup__name popup__name_link" name="link" placeholder="Ссылка на картинку" required>
+					<span class="popup__name-error" id="url-error"></span>
 					<button class="popup__btn" type="submit">Сохранить</button>
 				</form>
 			</div>
@@ -99,10 +103,11 @@
 				</div>
 			</div>
 		</div>
-	</div> 
+	</div>
 
 
-
+	<script src="script/validation.js"></script>
+	<script src="script/cards.js"></script>
 	<script src="script/script.js"></script>
 </body>
 </html>
