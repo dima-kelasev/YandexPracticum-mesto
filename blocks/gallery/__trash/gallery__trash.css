@@ -5,4 +5,10 @@
     cursor: pointer;
     border: 0;
     background: transparent;
+    transition: .3s linear;
+}
+
+.gallery__trash:hover {
+    opacity: .6;
+    transition: .3s linear;
 }

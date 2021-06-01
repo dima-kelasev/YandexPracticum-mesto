@@ -9,20 +9,20 @@
 <body class="root">
 	<div class="page-container">
 			<header class="header">
-				<img class="header__logo" src="imegas/logo.svg" alt="Место логотип">
+				<img class="header__logo" src="images/logo.svg" alt="Место логотип">
 			</header>
 			<main>
 
 				<section class="profile">
 					<div class="profile__section">
 						<div class="profile__avatar">
-							<img class="profile__img" src="imegas/Avatar.png" alt="Аватарка">
+							<img class="profile__img" src="images/Avatar.png" alt="Аватарка">
 						</div>
 						<div class="profile__text">
 							<div class="profile__title-block">
 								<h1 class="profile__title">Жак-Ив Кусто </h1>
 								<button class="profile__btn" type="button">
-									<img class="profile__vector" src="imegas/Vector.png" alt="кнопка редактирования">
+									<img class="profile__vector" src="images/Vector.png" alt="кнопка редактирования">
 								</button>
 								
 							</div>
@@ -30,7 +30,7 @@
 						</div>
 					</div>
 					<button class="profile__add" type="button">
-						<img class="profile__add-plus" src="imegas/VectorPlus.png" alt="кнопка Плюс">
+						<img class="profile__add-plus" src="images/VectorPlus.png" alt="кнопка Плюс">
 					</button>
 				</section>
 
@@ -39,7 +39,7 @@
 								<div class="gallery__item">
 									<img class="gallery__img" src="#" alt="картинка с красивым местом">
 									<button class="gallery__trash" type="button">
-										<img src="imegas/trash.png"  alt="кнопка удалить">
+										<img src="images/trash.png" alt="кнопка удалить">
 									</button>
 										<div class="gallery__text">
 											<p class="gallery__title"></p>
@@ -58,15 +58,15 @@
 
 		<div class="popup" id="popup-edit-profile">
 			<div class="popup__container">
-				<button class="popup__btnclose" type="button" >
-					<img class="popup__close" src="imegas/CloseIcon.png" alt="кнопка закрыть">
+				<button class="popup__btn-close" type="button" >
+					<img class="popup__close" src="images/CloseIcon.png" alt="кнопка закрыть">
 				</button>
 
 				<form novalidate class="popup__form" name="ChangeForm" id="pop-form-edit">
 					<h3 class="popup__title">Редактировать профиль</h3>
-					<input id="name" type="text" minlength="2" maxlength="40" class="popup__name popup__name_js_first-name" name="Name"  required>
+					<input id="name" value="Жак-Ив Кусто" type="text" minlength="2" maxlength="40" class="popup__name popup__name_js_first-name" name="Name" placeholder="Имя"  required>
 					<span class="popup__name-error" id="name-error"></span>
-					<input id="job" type="text" minlength="2" maxlength="200" class="popup__name popup__name_js_job" name="Job" required>
+					<input id="job" value="Исследователь океана" type="text" minlength="2" maxlength="200" class="popup__name popup__name_js_job" name="Job" placeholder="Вид деятельности" required>
 					<span class="popup__name-error" id="job-error"></span>
 					<button class="popup__btn" type="submit" >Сохранить</button>
 				</form>
@@ -76,8 +76,8 @@
 
 		<div class="popup" id="popup-place__form">
 			<div class="popup__container">
-				<button class="popup__btnclose" type="button"  id="closePlaceform">
-					<img class="popup__close" src="imegas/CloseIcon.png" alt="кнопка закрыть">
+				<button class="popup__btn-close" type="button"  id="closePlaceform">
+					<img class="popup__close" src="images/CloseIcon.png" alt="кнопка закрыть">
 				</button>
 
 				<form novalidate class="popup__form" name="addCard" id="popup-place__form_Add">
@@ -93,12 +93,9 @@
 
 		<div class="popup" id="popup-img__form">
 			<div class="popup__wrapper">
-				<div>
-					<button class="popup__btnclose" type="button"  id="popup-img__close">
-						<img class="popup__img-close" src="imegas/CloseIcon.png" alt="закрыть окно">
-					</button>
-
-					<img class="popup__img-main" src="#" alt="картинка на галвной">
+				<div class="popup__img-container">
+					<button class="popup__btn-close" type="button"  id="popup-img__close"></button>
+					<img class="popup__img-main" src="#" alt="картинка на главной">
 					<p class="popup__img-title"></p>
 				</div>
 			</div>
@@ -106,8 +103,6 @@
 	</div>
 
 
-	<script src="script/validation.js"></script>
-	<script src="script/cards.js"></script>
-	<script src="script/script.js"></script>
+	<script type="module" src="script/script.js"></script>
 </body>
 </html>

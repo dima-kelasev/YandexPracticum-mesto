@@ -3,6 +3,5 @@
 	display: block;
 }
 .popup__close:hover {
-  opacity: .6;
-  transition: .3s linear;
+
 }
