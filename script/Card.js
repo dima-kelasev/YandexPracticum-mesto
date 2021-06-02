@@ -1,8 +1,5 @@
-const popupImg = document.querySelector('#popup-img__form');
-const imgTitle = document.querySelector('.popup__img-title');
-// const closeImg = popupImg.querySelector('#popup-img__close');
+import {imgTitle, popupImg} from "./constans.js";
 import {openPopup} from "./utils.js";
-
 
 class Card {
   constructor(data, templateSelector) {
@@ -10,15 +7,16 @@ class Card {
     this._link = data.link;
     this._templateSelector = templateSelector;
   }
+
   //получение темплэйта
- _getTemplate() {
-   return document.querySelector(this._templateSelector).content.querySelector('.gallery__item').cloneNode(true);
+  _getTemplate() {
+    return document.querySelector(this._templateSelector).content.querySelector('.gallery__item').cloneNode(true);
   }
 
 //генерация карточек
   genereteCard() {
-    this._element  = this._getTemplate();
-    const galleryImg = this._element.querySelector('.gallery__img')
+    this._element = this._getTemplate();
+    const galleryImg = this._element.querySelector('.gallery__img');
     galleryImg.src = this._link;
     galleryImg.alt = this._name;
     this._element.querySelector('.gallery__title').textContent = this._name;
@@ -31,19 +29,20 @@ class Card {
     popupImg.querySelector('.popup__img-main').src = this._link;
     popupImg.querySelector('.popup__img-main').alt = this._name;
     imgTitle.textContent = this._name;
-    openPopup(popupImg)
+    openPopup(popupImg);
   };
 
   _setListener() {
-  //  открытие попапа на картинку
+    //  открытие попапа на картинку
     this._element.querySelector('.gallery__img').addEventListener("click", this._handleOpenPopup);
-  //  кнопка лайка
-    this._element.querySelector('.gallery__like').addEventListener('click',  (e) => {
+    //  кнопка лайка
+    this._element.querySelector('.gallery__like').addEventListener('click', (e) => {
       e.target.classList.toggle('gallery__like_active');
     })
-  //  удаление карточки
-    this._element.querySelector('.gallery__trash').addEventListener('click',  (e) => {
+    //  удаление карточки
+    this._element.querySelector('.gallery__trash').addEventListener('click', (e) => {
       e.target.closest('.gallery__item').remove();
+      this._element = null;
     })
   }
 }

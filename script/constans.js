@@ -1,3 +1,8 @@
+const popupImg = document.querySelector('#popup-img__form');
+const imgTitle = document.querySelector('.popup__img-title');
+const popupEditProfile = document.querySelector('#popup-edit-profile');
+const popupPlace = document.querySelector('#popup-place__form');
+
 const initialCards = [
   {
     name: 'Архыз',
@@ -33,4 +38,4 @@ const config = {
   errorClass: 'popup__name-error-active'
 }
 
-export { config, initialCards}
+export {config, initialCards, popupImg, imgTitle, popupEditProfile, popupPlace};
