@@ -1,11 +1,10 @@
-import {imgTitle, popupImg} from "./constans.js";
-import {openPopup} from "./utils.js";
-
 class Card {
-  constructor(data, templateSelector) {
+  constructor({data, handleCardClick}, templateSelector) {
     this._name = data.name;
     this._link = data.link;
     this._templateSelector = templateSelector;
+    this._handleCardClick = handleCardClick
+
   }
 
   //получение темплэйта
@@ -24,17 +23,11 @@ class Card {
     return this._element;
   }
 
-  //метод открытия попапа img
-  _handleOpenPopup = () => {
-    popupImg.querySelector('.popup__img-main').src = this._link;
-    popupImg.querySelector('.popup__img-main').alt = this._name;
-    imgTitle.textContent = this._name;
-    openPopup(popupImg);
-  };
-
   _setListener() {
     //  открытие попапа на картинку
-    this._element.querySelector('.gallery__img').addEventListener("click", this._handleOpenPopup);
+    this._element.querySelector('.gallery__img').addEventListener("click", () => {
+      this._handleCardClick(this._link, this._name)
+    });
     //  кнопка лайка
     this._element.querySelector('.gallery__like').addEventListener('click', (e) => {
       e.target.classList.toggle('gallery__like_active');
