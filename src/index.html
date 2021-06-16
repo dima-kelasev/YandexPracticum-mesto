@@ -3,26 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="pages/index.css">
     <title>mesto</title>
 </head>
 <body class="root">
 <div class="page-container">
     <header class="header">
-        <img class="header__logo" src="images/logo.svg" alt="Место логотип">
+        <img class="header__logo" src='<%=require("./images/logo.svg")%>' alt="Место логотип">
     </header>
     <main>
 
         <section class="profile">
             <div class="profile__section">
                 <div class="profile__avatar">
-                    <img class="profile__img" src="images/Avatar.png" alt="Аватарка">
+                    <img class="profile__img" src='<%=require("./images/Avatar.png")%>' alt="Аватарка">
                 </div>
                 <div class="profile__text">
                     <div class="profile__title-block">
                         <h1 class="profile__title">Жак-Ив Кусто </h1>
                         <button class="profile__btn" type="button">
-                            <img class="profile__vector" src="images/Vector.png" alt="кнопка редактирования">
+                            <img class="profile__vector" src='<%=require("./images/Vector.png")%>' alt="кнопка редактирования">
                         </button>
 
                     </div>
@@ -30,7 +29,7 @@
                 </div>
             </div>
             <button class="profile__add" type="button">
-                <img class="profile__add-plus" src="images/VectorPlus.png" alt="кнопка Плюс">
+                <img class="profile__add-plus" src='<%=require("./images/VectorPlus.png")%>' alt="кнопка Плюс">
             </button>
         </section>
 
@@ -39,7 +38,7 @@
                 <div class="gallery__item">
                     <img class="gallery__img" src="#" alt="картинка с красивым местом">
                     <button class="gallery__trash" type="button">
-                        <img src="images/trash.png" alt="кнопка удалить">
+                        <img src='<%=require("./images/trash.png")%>' alt="кнопка удалить">
                     </button>
                     <div class="gallery__text">
                         <p class="gallery__title"></p>
@@ -59,7 +58,7 @@
     <div class="popup" id="popup-edit-profile">
         <div class="popup__container">
             <button class="popup__btn-close" type="button">
-                <img class="popup__close" src="images/CloseIcon.png" alt="кнопка закрыть">
+                <img class="popup__close" src='<%=require("./images/CloseIcon.png")%>' alt="кнопка закрыть">
             </button>
 
             <form novalidate class="popup__form" name="ChangeForm" id="pop-form-edit">
@@ -79,7 +78,7 @@
     <div class="popup" id="popup-place__form">
         <div class="popup__container">
             <button class="popup__btn-close" type="button" id="closePlaceform">
-                <img class="popup__close" src="images/CloseIcon.png" alt="кнопка закрыть">
+                <img class="popup__close" src='<%=require("./images/CloseIcon.png")%>' alt="кнопка закрыть">
             </button>
 
             <form novalidate class="popup__form" name="addCard" id="popup-place__form_Add">
@@ -107,6 +106,6 @@
 </div>
 
 
-<script type="module" src="pages/script.js"></script>
+
 </body>
 </html>
