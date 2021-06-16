@@ -1,0 +1,39 @@
+.popup__img-close {
+    position: absolute;
+    right: -27%;
+    top: -9%;
+    cursor: pointer;
+    border: 0;
+    background: transparent;
+}
+
+@media (max-width: 1024px) {
+    .popup__img-close {
+        right: -47%;
+        top: -11%;
+    }
+}
+
+@media (max-width: 768px) {
+    .popup__img-close {
+        /*width: 36px;*/
+        right: -100px;
+        top: -13px;
+    }
+}
+
+@media (max-width: 425px) {
+    .popup__img-close {
+        width: 36px;
+        right: -48%;
+        top: -20%;
+    }
+}
+
+@media (max-width: 320px) {
+    .popup__img-close {
+        width: 26px;
+        right: 0;
+        top: -20%;
+    }
+}

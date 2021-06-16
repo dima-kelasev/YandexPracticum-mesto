@@ -1,0 +1,10 @@
+.profile__vector {
+
+}
+
+@media (max-width: 320px) {
+	.profile__vector {
+		width: 7.5px;
+		
+	}
+}

@@ -1,0 +1,10 @@
+.profile__avatar {
+	
+}
+
+@media (max-width:425px) {
+	.profile__avatar {
+		display: flex;
+		justify-content: center;
+	}
+}

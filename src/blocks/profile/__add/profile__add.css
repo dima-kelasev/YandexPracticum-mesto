@@ -1,0 +1,23 @@
+.profile__add {
+	border: 2px solid #fff;
+	padding: 1.31% 7.16%;
+	cursor: pointer;
+	border-radius: 2px;
+	background: inherit;
+	transition: .3s linear;
+}
+
+.profile__add:hover {
+	opacity: .6;
+	transition: .3s linear;
+}
+
+@media (max-width:640px) {
+	.profile__add {
+		width: 73.2%;
+		margin: 0 auto;
+		display: flex;
+    justify-content: center;
+    padding: 4.1% 7.16%;
+	}
+}
