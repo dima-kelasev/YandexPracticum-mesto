@@ -1,9 +1,0 @@
-.profile__add-plus {
-	cursor: pointer;
-}
-
-@media (max-width: 425px) {
-	.profile__add-plus {
-		width: 16px;
-	}
-}
