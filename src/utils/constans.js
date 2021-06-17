@@ -9,6 +9,7 @@ const popupImg = document.querySelector('#popup-img__form');
 const formProfile = document.querySelector('#pop-form-edit');
 const formPlace = document.querySelector('#popup-place__form_Add');
 const btnPlus = document.querySelector('.profile__add');
+const formInput = document.querySelector('.popup__name')
 const nameInput = document.querySelector('.popup__name_js_first-name');
 const jobInput = document.querySelector('.popup__name_js_job');
 const inputPlace = document.querySelector('.popup__name_place');
@@ -18,7 +19,7 @@ const subtitleText = document.querySelector('.profile__subtitle');
 const gallery = document.querySelector('.gallery');
 const closeImg = popupImg.querySelector('#popup-img__close');
 const popupList = Array.from(document.querySelectorAll('.popup'));
-const cards = document.querySelector('#cards')
+const cards = document.querySelector('#cards');
 
 const initialCards = [
   {
@@ -79,4 +80,5 @@ export {
   closeImg,
   popupList,
   cards,
+  formInput
 };

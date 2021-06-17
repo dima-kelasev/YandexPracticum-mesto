@@ -15,13 +15,13 @@ class FormValidator {
     this._inputList.forEach((input) => {
       input.addEventListener('input', () => {
         this._checkInputValidity(input);
-        this._toggleButtonState();
+        this.toggleButtonState();
       })
     })
-    this._toggleButtonState();
+    this.toggleButtonState();
   }
 
-  _toggleButtonState = () => {
+  toggleButtonState = () => {
     this.buttonElement.disabled = !!this._checkFormValidity();
   }
 

@@ -5,88 +5,80 @@ import {PopupWithImage} from "../components/PopupWithImage.js";
 import {Section} from '../components/Section.js';
 import {UserInfo} from "../components/UserInfo.js";
 import {
+  btnPlus,
   config,
+  gallery,
   initialCards,
-  inputPlace,
-  popupPlace,
+  jobInput,
+  nameInput,
   popupEditProfile,
   popupImg,
-  titleText,
-  subtitleText,
-  nameInput,
-  jobInput,
-  gallery,
-  inputLink,
+  popupPlace,
   profileBtn,
-  btnPlus,
+  subtitleText,
+  titleText,
 } from "../utils/constans.js";
 import './index.css'
 
+//функция создания карточки
+const createNewCard = (item) => {
+  const popUpWithImg = new PopupWithImage(popupImg)
+  const newCard = new Card({
+    data: item,
+    handleCardClick: (job, name) => {
+      popUpWithImg.open(job, name)
+    }
+  }, "#cards")
+  return newCard.genereteCard()
+}
 
 //создание экземпляров классов
 const formEditProfile = new FormValidator(config, popupEditProfile);
 
 const formAddCard = new FormValidator(config, popupPlace);
 
+const user = new UserInfo(titleText, subtitleText);
+
+//рендер всех карточек
+const renderCards = new Section({
+  items: initialCards,
+  renderer: (data) => {
+    renderCards.addItem(createNewCard(data))
+  }
+}, gallery);
+
 //форма добавления карточки
 const popUpAdd = new PopupWithForm({
   popupSelector: popupPlace,
-  handleFormSubmit: () => {
-    const user = new UserInfo(inputPlace.value, inputLink.value)
-    const dataUser = user.getUserInfo()
-    const newCard = new Card({
-      data: dataUser,
-      handleCardClick: (job, name) => {
-        const popUpWithImg = new PopupWithImage(popupImg)
-        popUpWithImg.open(job, name)
-      }
-    }, "#cards")
-    gallery.prepend(newCard.genereteCard())
+  handleFormSubmit: (data) => {
+    renderCards.addItem(createNewCard(data))
   }
 })
 
 //форма редактирования
 const popUpEdit = new PopupWithForm({
   popupSelector: popupEditProfile,
-  handleFormSubmit: () => {
-    const user = new UserInfo(nameInput.value, jobInput.value)
-    const dataUser = user.getUserInfo()
-    titleText.textContent = dataUser.name;
-    subtitleText.textContent = dataUser.link;
+  handleFormSubmit: (item) => {
+    user.setUserInfo(item)
   }
 })
-
-//рендер всех карточек
-const renderCards = new Section({
-  items: initialCards,
-  renderer: (data) => {
-    const card = new Card({
-      data,
-      handleCardClick: (link, name) => {
-        const popUpWithImg = new PopupWithImage(popupImg)
-        popUpWithImg.open(link, name)
-      }
-    }, '#cards');
-    renderCards.addItem(card.genereteCard())
-  }
-}, gallery);
-
 
 //вызовы методов
 formEditProfile.enableValidation();
 formAddCard.enableValidation();
 renderCards.renderItems()
 
-//слущатели
+//слушатели
 profileBtn.addEventListener('click', () => {
-  // подъставлем данные в пользователя при открытии
-  const infoUser = new UserInfo(titleText.textContent, subtitleText.textContent)
-  const dataUser = infoUser.getUserInfo()
-  nameInput.value = dataUser.name
-  jobInput.value = dataUser.link
+  // подставляем данные в пользователя при открытии
+  const {name, about} = user.getUserInfo()
+  nameInput.value = name
+  jobInput.value = about
+  formEditProfile.toggleButtonState()
   popUpEdit.open()
 
 })
 btnPlus.addEventListener('click', () => {
+  formAddCard.toggleButtonState()
   popUpAdd.open()
 })

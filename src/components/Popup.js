@@ -1,6 +1,3 @@
-import FormValidator from "./FormValidator.js";
-import {config, popupEditProfile, popupPlace} from "../utils/constans.js";
-
 export class Popup {
   constructor(popupSelector) {
     this._popup = popupSelector
@@ -11,16 +8,13 @@ export class Popup {
 
   open() {
     this._popup.classList.add('popup_opened');
-    this._setEventListeners();
-    const checkActiveButtonProfile = new FormValidator(config, popupEditProfile);
-    const checkActiveButtonAddForm = new FormValidator(config, popupPlace);
-    checkActiveButtonProfile._toggleButtonState();
-    checkActiveButtonAddForm._toggleButtonState();
+    document.addEventListener('keydown', this._handleEscClose);
+    this.setEventListeners();
   }
 
   close() {
     this._popup.classList.remove('popup_opened');
-    this._removeEventListeners();
+    document.removeEventListener('keydown', this._handleEscClose);
   }
 
   _handleEscClose = (evt) => {
@@ -39,9 +33,9 @@ export class Popup {
     this.close();
   }
 
-  _setEventListeners() {
+  setEventListeners() {
     this._closeButton = this._popup.querySelector('.popup__btn-close');
-    document.addEventListener('keydown', this._handleEscClose);
+
     this._popup.addEventListener('mousedown', this._handleOverlayClose);
     this._closeButton.addEventListener('click', this._handleButtonClose);
   }
