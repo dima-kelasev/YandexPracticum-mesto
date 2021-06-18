@@ -7,6 +7,7 @@ import {UserInfo} from "../components/UserInfo.js";
 import {
   btnPlus,
   config,
+  userConfig,
   gallery,
   initialCards,
   jobInput,
@@ -15,14 +16,46 @@ import {
   popupImg,
   popupPlace,
   profileBtn,
-  subtitleText,
-  titleText,
 } from "../utils/constans.js";
 import './index.css'
 
+
+
+//создание экземпляров классов
+const formEditProfile = new FormValidator(config, popupEditProfile);
+formEditProfile.enableValidation();
+
+const formAddCard = new FormValidator(config, popupPlace);
+formAddCard.enableValidation();
+
+//класс информации о пользователе
+const {nameSelector, subSelector} = userConfig
+const user = new UserInfo(nameSelector, subSelector);
+
+//попап с картинкой
+const popUpWithImg = new PopupWithImage(popupImg)
+popUpWithImg.setEventListeners()
+
+//форма добавления карточки
+const popUpAdd = new PopupWithForm({
+  popupSelector: popupPlace,
+  handleFormSubmit: (data) => {
+    renderCards.addItem(createNewCard(data))
+  }
+})
+popUpAdd.setEventListeners()
+
+//форма редактирования
+const popUpEdit = new PopupWithForm({
+  popupSelector: popupEditProfile,
+  handleFormSubmit: (item) => {
+    user.setUserInfo(item)
+  }
+})
+popUpEdit.setEventListeners()
+
 //функция создания карточки
 const createNewCard = (item) => {
-  const popUpWithImg = new PopupWithImage(popupImg)
   const newCard = new Card({
     data: item,
     handleCardClick: (job, name) => {
@@ -32,13 +65,6 @@ const createNewCard = (item) => {
   return newCard.genereteCard()
 }
 
-//создание экземпляров классов
-const formEditProfile = new FormValidator(config, popupEditProfile);
-
-const formAddCard = new FormValidator(config, popupPlace);
-
-const user = new UserInfo(titleText, subtitleText);
-
 //рендер всех карточек
 const renderCards = new Section({
   items: initialCards,
@@ -46,27 +72,8 @@ const renderCards = new Section({
     renderCards.addItem(createNewCard(data))
   }
 }, gallery);
-
-//форма добавления карточки
-const popUpAdd = new PopupWithForm({
-  popupSelector: popupPlace,
-  handleFormSubmit: (data) => {
-    renderCards.addItem(createNewCard(data))
-  }
-})
-
-//форма редактирования
-const popUpEdit = new PopupWithForm({
-  popupSelector: popupEditProfile,
-  handleFormSubmit: (item) => {
-    user.setUserInfo(item)
-  }
-})
-
-//вызовы методов
-formEditProfile.enableValidation();
-formAddCard.enableValidation();
 renderCards.renderItems()
+
 
 //слушатели
 profileBtn.addEventListener('click', () => {
@@ -76,8 +83,8 @@ profileBtn.addEventListener('click', () => {
   jobInput.value = about
   formEditProfile.toggleButtonState()
   popUpEdit.open()
-
 })
+
 btnPlus.addEventListener('click', () => {
   formAddCard.toggleButtonState()
   popUpAdd.open()

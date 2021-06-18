@@ -56,8 +56,14 @@ const config = {
   errorClass: 'popup__name-error-active'
 }
 
+const userConfig = {
+  nameSelector: '.profile__title',
+  subSelector: '.profile__subtitle'
+}
+
 export {
   config,
+  userConfig,
   initialCards,
   popupImg,
   imgTitle,
