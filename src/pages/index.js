@@ -20,7 +20,6 @@ import {
 import './index.css'
 
 
-
 //создание экземпляров классов
 const formEditProfile = new FormValidator(config, popupEditProfile);
 formEditProfile.enableValidation();
