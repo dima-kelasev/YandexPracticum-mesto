@@ -8,6 +8,8 @@ const closeCardBtn = document.querySelector('#closePlaceform');
 const popupImg = document.querySelector('#popup-img__form');
 const formProfile = document.querySelector('#pop-form-edit');
 const formPlace = document.querySelector('#popup-place__form_Add');
+const popupDelete = document.querySelector('#popup-delete')
+const popupAvatar = document.querySelector('#popup-avatar')
 const btnPlus = document.querySelector('.profile__add');
 const formInput = document.querySelector('.popup__name')
 const nameInput = document.querySelector('.popup__name_js_first-name');
@@ -16,37 +18,13 @@ const inputPlace = document.querySelector('.popup__name_place');
 const inputLink = document.querySelector('.popup__name_link');
 const titleText = document.querySelector('.profile__title');
 const subtitleText = document.querySelector('.profile__subtitle');
+const avatar = document.querySelector('.profile__img')
 const gallery = document.querySelector('.gallery');
 const closeImg = popupImg.querySelector('#popup-img__close');
 const popupList = Array.from(document.querySelectorAll('.popup'));
 const cards = document.querySelector('#cards');
-
-const initialCards = [
-  {
-    name: 'Архыз',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg',
-  },
-  {
-    name: 'Челябинская область',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg',
-  },
-  {
-    name: 'Домбай',
-    link: 'https://images.unsplash.com/photo-1558098115-228ee6fbc761?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1785&q=80',
-  },
-  {
-    name: 'Камчатка',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg',
-  },
-  {
-    name: 'Холмогорский район',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg',
-  },
-  {
-    name: 'Байкал',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg',
-  }
-];
+const btnDelete = document.querySelector('.gallery__trash')
+const btnAva = document.querySelector('.profile__pen')
 
 const config = {
   formSelector: '.popup__form',
@@ -58,13 +36,19 @@ const config = {
 
 const userConfig = {
   nameSelector: '.profile__title',
-  subSelector: '.profile__subtitle'
+  subSelector: '.profile__subtitle',
+  avatarSelector: '.profile__img'
+}
+
+const apiConfig = {
+  baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-25',
+  token: '8da154f6-954e-43f0-bf1e-69fea5b0fb49'
 }
 
 export {
   config,
   userConfig,
-  initialCards,
+  apiConfig,
   popupImg,
   imgTitle,
   popUpImg,
@@ -86,5 +70,10 @@ export {
   closeImg,
   popupList,
   cards,
-  formInput
+  formInput,
+  avatar,
+  popupDelete,
+  btnDelete,
+  popupAvatar,
+  btnAva
 };

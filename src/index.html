@@ -14,9 +14,10 @@
 
         <section class="profile">
             <div class="profile__section">
-                <div class="profile__avatar">
-                    <img class="profile__img" src='<%=require("./images/Avatar.png")%>' alt="Аватарка">
-                </div>
+                    <div class="profile__avatar">
+                        <img class="profile__img" src='#' alt="Аватарка">
+                        <button class="profile__pen"></button>
+                    </div>
                 <div class="profile__text">
                     <div class="profile__title-block">
                         <h1 class="profile__title">Жак-Ив Кусто  </h1>
@@ -37,13 +38,16 @@
             <template id="cards">
                 <div class="gallery__item">
                     <img class="gallery__img" src="#" alt="картинка с красивым местом">
-                    <button class="gallery__trash" type="button">
+                    <button class="gallery__trash gallery__trash_hide" type="button">
                         <img src='<%=require("./images/trash.png")%>' alt="кнопка удалить">
                     </button>
                     <div class="gallery__text">
                         <p class="gallery__title"></p>
-                        <button class="gallery__like" type="button">
-                        </button>
+                        <div class="gallery__like_block">
+                            <button class="gallery__like" type="button"></button>
+                            <span class="gallery__like_count">0</span>
+                        </div>
+
                     </div>
                 </div>
             </template>
@@ -103,6 +107,35 @@
             </div>
         </div>
     </div>
+
+    <div class="popup " id="popup-delete">
+        <div class="popup__container popup__delete">
+            <button class="popup__btn-close" type="button" id="closeDelete">
+                <img class="popup__close" src='<%=require("./images/CloseIcon.png")%>' alt="кнопка закрыть">
+            </button>
+            <form novalidate class="popup__form" name="deleteCard" id="popup-delete-form">
+                <h2 class="popup__title_confirm">Вы уверены?</h2>
+                <button class="popup__btn popup__btn_delete" type="submit">Да</button>
+            </form>
+
+        </div>
+    </div>
+
+    <div class="popup" id="popup-avatar">
+        <div class="popup__container">
+            <button class="popup__btn-close" type="button" id="closeAvatar">
+                <img class="popup__close" src='<%=require("./images/CloseIcon.png")%>' alt="кнопка закрыть">
+            </button>
+            <form novalidate class="popup__form" name="addCard" id="popup-avatar_Form">
+                <h3 class="popup__title">Обновить аватар</h3>
+                <input id="urlAvatar" type="url" class="popup__name popup__name_link" name="avatar"
+                       placeholder="Ссылка на картинку" required>
+                <span class="popup__name-error" id="urlAvatar-error"></span>
+                <button class="popup__btn" type="submit">Сохранить</button>
+            </form>
+        </div>
+    </div>
+
 </div>
 
 

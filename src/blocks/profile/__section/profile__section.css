@@ -11,6 +11,6 @@
 
 @media (max-width: 425px) {
 	.profile__section {
-		display: block;
+		flex-direction: column;
 	}
 }

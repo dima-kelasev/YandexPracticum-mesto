@@ -9,6 +9,7 @@
 																		/* profile */
 @import url('../blocks/profile/profile.css');
 @import url('../blocks/profile/__section/profile__section.css');
+@import url('../blocks/profile/__pen/profile__pen.css');
 @import url('../blocks/profile/__avatar/profile__avatar.css');
 @import url('../blocks/profile/__btn/profile__btn.css');
 @import url('../blocks/profile/__img/profile__img.css');
@@ -26,9 +27,12 @@
 @import url('../blocks/gallery/__text/gallery__text.css');
 @import url('../blocks/gallery/__title/gallery__title.css');
 @import url('../blocks/gallery/__like/gallery__like.css');
+@import url('../blocks/gallery/__like/_block/gallery__like_block.css');
+@import url('../blocks/gallery/__like/_count/gallery__like_count.css');
 @import url('../blocks/gallery/__heart/gallery__heart.css');
 @import url('../blocks/gallery/__like/_active/gallery__like_active.css');
 @import url('../blocks/gallery/__trash/gallery__trash.css');
+@import url('../blocks/gallery/__trash/_hide/gallary__trah_hide.css');
 																			/* footer */
 @import url('../blocks/footer/footer.css');
 @import url('../blocks/footer/__title/footer__title.css');
@@ -39,13 +43,16 @@
 @import url('../blocks/popup/__close/popup__close.css');
 @import url('../blocks/popup/__form/popup__form.css');
 @import url('../blocks/popup/__title/popup__title.css');
+@import url('../blocks/popup/__title/_confirm/popup__title_confirm.css');
 @import url('../blocks/popup/__name/popup__name.css');
 @import url('../blocks/popup/__name/_js/popup__name_js_job.css');
 @import url('../blocks/popup/__name/_error/popup__name_type_error.css');
 @import url('../blocks/popup/__name-error/popup__name-error.css');
 @import url('../blocks/popup/__name-error/active/popup__name-error-active.css');
 @import url('../blocks/popup/__btn/popup__btn.css');
+@import url('../blocks/popup/__btn/_delete/popup__btn_delete.css');
 @import url('../blocks/popup/_opened/popup_opened.css');
+@import url('../blocks/popup/__delete/popup__delete.css');
 @import url('../blocks/popup/__img-container/popup__img-container.css');
 @import url('../blocks/popup/__img-main/popup__img-main.css');
 @import url('../blocks/popup/__img-close/popup__img-close.css');

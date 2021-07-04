@@ -3,7 +3,8 @@
 	border: 0;
 	background-image: url('../../../images/VectorHeart.svg');
 	background-repeat: no-repeat;
-	width: 11%;
+	width: 22px;
+	height: 22px;
 	cursor: pointer;
 	transition: .3s linear;
 }

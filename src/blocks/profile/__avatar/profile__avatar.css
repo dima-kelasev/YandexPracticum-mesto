@@ -1,6 +1,8 @@
 .profile__avatar {
-	
+	width: 122px;
+	position: relative;
 }
+
 
 @media (max-width:425px) {
 	.profile__avatar {
