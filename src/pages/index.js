@@ -5,6 +5,7 @@ import {PopupWithForm} from "../components/PopupWithForm.js";
 import {PopupWithImage} from "../components/PopupWithImage.js";
 import {Section} from '../components/Section.js';
 import {UserInfo} from "../components/UserInfo.js";
+import {PopupConfirm} from '../components/PopUpDelete.js'
 import {
   btnPlus,
   config,
@@ -17,9 +18,6 @@ import {
   profileBtn,
   userConfig,
   apiConfig,
-  titleText,
-  subtitleText,
-  avatar,
   popupDelete,
   popupAvatar,
   btnAva
@@ -38,17 +36,20 @@ const formAvatar = new FormValidator(config, popupAvatar)
 formAvatar.enableValidation()
 
 //Api
-const { baseUrl, token} = apiConfig
+const {baseUrl, token} = apiConfig
 const api = new Api(baseUrl, token)
 
 //класс информации о пользователе
-const {nameSelector, subSelector} = userConfig
-const user = new UserInfo(nameSelector, subSelector);
+const {nameSelector, subSelector, avatarSelector} = userConfig
+const user = new UserInfo(nameSelector, subSelector, avatarSelector);
 
 //попап с картинкой
 const popUpWithImg = new PopupWithImage(popupImg)
 popUpWithImg.setEventListeners()
 
+//попап подтверждения удаления
+const popupDel = new PopupConfirm(popupDelete)
+popupDel.setEventListeners()
 
 //экземпляр Section
 const cardList = new Section({
@@ -58,13 +59,15 @@ const cardList = new Section({
 }, gallery)
 
 
-//рендер всех карточек
-api.getInitialCards()
-.then((result) => {
-  cardList.renderItems(result)
+//рендер всех карточек и рендер данных пользователя с бэка
+Promise.all([api.getInfo(), api.getInitialCards()])
+.then(([userData, cards]) => {
+  userId = userData._id
+  cardList.renderItems(cards)
+  user.setUserInfo(userData)
 })
 .catch((err) => {
-  console.log(err);
+  console.log(`возникла ошибка: ${err.status}`)
 })
 
 
@@ -74,8 +77,12 @@ const popUpAdd = new PopupWithForm({
   handleFormSubmit: (data) => {
     popUpAdd.loading(true)
     api.addNewCard(data)
-    .then( data => {
+    .then(data => {
       cardList.addItem(createNewCard(data))
+      popUpAdd.close()
+    })
+    .catch((err) => {
+      console.log(`возникла ошибка: ${err.status}`)
     })
     .finally(() => {
       popUpAdd.loading(false)
@@ -93,6 +100,10 @@ const popUpEdit = new PopupWithForm({
     api.setInfo(data)
     .then((res) => {
       user.setUserInfo(res)
+      popUpEdit.close()
+    })
+    .catch((err) => {
+      console.log(`возникла ошибка: ${err.status}`)
     })
     .finally(() => {
       popUpEdit.loading(false)
@@ -109,7 +120,11 @@ const popupAva = new PopupWithForm({
     popupAva.loading(true)
     api.setAva(data)
     .then(res => {
-      avatar.src = res.avatar
+      user.setUserAva(res)
+      popupAva.close()
+    })
+    .catch((err) => {
+      console.log(`возникла ошибка: ${err.status}`)
     })
     .finally(() => {
       popupAva.loading(false)
@@ -121,16 +136,6 @@ popupAva.setEventListeners()
 
 let userId = null
 
-//подставляем данные с сервера в название профиля и аватара
-api.getInfo()
-.then(res => {
-  userId = res._id
-  titleText.textContent = res.name
-  subtitleText.textContent = res.about
-  avatar.src = res.avatar
-})
-
-
 //функция создания карточки
 const createNewCard = (item) => {
   const newCard = new Card({
@@ -140,28 +145,34 @@ const createNewCard = (item) => {
     },
     currentUser: userId,
     deleteButtonClick: () => {
-      const popupConfurm = new PopupWithForm({
-        popupSelector: popupDelete,
-        handleFormSubmit: () => {
-          api.deleteCard(item._id)
-          .then(() => {
-            newCard.removeCard()
-          })
-        }
+      popupDel.open()
+      popupDel.submitDelete(() => {
+        api.deleteCard(item._id)
+        .then(() => {
+          newCard.removeCard()
+          popupDel.close()
+        })
+        .catch((err) => {
+          console.log(`возникла ошибка: ${err.status}`)
+        })
       })
-      popupConfurm.open()
-      popupConfurm.setEventListeners()
     },
     setLike: () => {
       api.setlike(newCard._data)
       .then((data) => {
         newCard.setLike(data)
       })
+      .catch((err) => {
+        console.log(`возникла ошибка: ${err.status}`)
+      })
     },
     deleteLike: () => {
       api.removeLike(newCard._data)
       .then((data) => {
         newCard.deleteLike(data)
+      })
+      .catch((err) => {
+        console.log(`возникла ошибка: ${err.status}`)
       })
     }
   }, "#cards")

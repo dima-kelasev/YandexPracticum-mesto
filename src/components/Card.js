@@ -25,16 +25,19 @@ class Card {
     return String(data.likes.length)
   }
 
+  //поставить лайк
   setLike(data) {
     this._element.querySelector('.gallery__like').classList.add('gallery__like_active');
     this._element.querySelector('.gallery__like_count').textContent = this._likesNumber(data);
   }
 
+  //удалить лайк
   deleteLike(data) {
     this._element.querySelector('.gallery__like').classList.remove('gallery__like_active');
     this._element.querySelector('.gallery__like_count').textContent = this._likesNumber(data);
   }
 
+  //если мой лайк
   _LikedByMe() {
     this._data.likes.forEach((likeOwner) => {
       if (likeOwner._id === this._currentUser) {
@@ -73,8 +76,6 @@ class Card {
       } else {
         this._setLike()
       }
-      // e.target.classList.toggle('gallery__like_active');
-      // this._likeBtn.textContent = + 1;
     })
     //  удаление карточки
     this._element.querySelector('.gallery__trash').addEventListener('click', (e) => {
@@ -82,9 +83,6 @@ class Card {
     })
   }
 
-  getId() {
-    return this._id
-  }
 
   removeCard() {
     this._element.remove();

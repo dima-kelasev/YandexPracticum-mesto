@@ -1,10 +1,10 @@
-export default  class Api {
+export default class Api {
   constructor(baseUrl, token) {
     this._baseUrl = baseUrl;
     this._token = token;
   }
 
-_parseResponse(res) {
+  _parseResponse(res) {
     if (res.ok) {
       return res.json();
     }
@@ -18,23 +18,20 @@ _parseResponse(res) {
       },
     })
     .then((res) => this._parseResponse(res))
-    .catch((err) => {
-      throw err;
-    });
   }
 
   addNewCard(data) {
-  return fetch(`${this._baseUrl}/cards`, {
-    method: 'POST',
-    headers: {
-      authorization: this._token,
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({
-      name: data.name,
-      link: data.link
+    return fetch(`${this._baseUrl}/cards`, {
+      method: 'POST',
+      headers: {
+        authorization: this._token,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        name: data.name,
+        link: data.link
+      })
     })
-  })
     .then(this._parseResponse)
   }
 
@@ -46,7 +43,9 @@ _parseResponse(res) {
         'Content-Type': 'application/json'
       }
     })
-    .then(() => {this._parseResponse})
+    .then(() => {
+      this._parseResponse
+    })
   }
 
   getInfo() {
