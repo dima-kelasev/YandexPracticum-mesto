@@ -36,5 +36,5 @@
 
 
 
-[Проект MESTO] (https://dima-kelasev.github.io/YandexPracticum-mesto/)
+[Проект MESTO](https://dima-kelasev.github.io/YandexPracticum-mesto/)
 
